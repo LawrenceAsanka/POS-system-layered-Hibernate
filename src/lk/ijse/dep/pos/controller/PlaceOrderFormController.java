@@ -325,49 +325,5 @@ public class PlaceOrderFormController {
         }
     }
 
-    void initializeWithSearchOrderForm(String orderId) {
-        lblId.setText(orderId);
-        readOnly = true;
-        for (Order order : ordersDB) {
-            if (order.getId().equals(orderId)) {
-                lblDate.setText(order.getDate() + "");
-
-                // To select the customer
-                String customerId = order.getCustomerId();
-                for (CustomerTM customer : cmbCustomerId.getItems()) {
-                    if (customer.getId().equals(customerId)) {
-                        cmbCustomerId.getSelectionModel().select(customer);
-                        break;
-                    }
-                }
-
-                for (OrderDetail orderDetail : order.getOrderDetails()) {
-                    String description = null;
-                    for (ItemTM item : cmbItemCode.getItems()) {
-                        if (item.getCode().equals(orderDetail.getCode())) {
-                            description = item.getDescription();
-                            break;
-                        }
-                    }
-                    OrderDetailTM orderDetailTM = new OrderDetailTM(
-                            orderDetail.getCode(),
-                            description,
-                            orderDetail.getQty(),
-                            orderDetail.getUnitPrice(),
-                            orderDetail.getQty() * orderDetail.getUnitPrice(),
-                            null
-                    );
-                    tblOrderDetails.getItems().add(orderDetailTM);
-                    calculateTotal();
-                }
-
-                cmbCustomerId.setDisable(true);
-                cmbItemCode.setDisable(true);
-                btnSave.setDisable(true);
-                btnPlaceOrder.setVisible(false);
-                break;
-            }
-        }
-    }
 
 }

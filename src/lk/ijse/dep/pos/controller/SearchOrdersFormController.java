@@ -87,22 +87,5 @@ public class SearchOrdersFormController {
         primaryStage.centerOnScreen();
     }
 
-    public void tblOrders_OnMouseClicked(MouseEvent mouseEvent) throws IOException {
-        if (tblOrders.getSelectionModel().getSelectedItem() == null) {
-            return;
-        }
-        if (mouseEvent.getClickCount() == 2) {
-            FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/lk/ijse/dep/pos/view/PlaceOrderForm.fxml"));
-            Parent root = fxmlLoader.load();
-            PlaceOrderFormController controller = fxmlLoader.getController();
-            controller.initializeWithSearchOrderForm(tblOrders.getSelectionModel().getSelectedItem().getOrderId());
-            //System.out.println(tblOrders.getSelectionModel().getSelectedItem().getOrderId());
-            Scene orderScene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(orderScene);
-            stage.centerOnScreen();
-            stage.show();
-        }
-    }
 
 }
