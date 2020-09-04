@@ -96,6 +96,7 @@ public class SearchOrdersFormController {
             Parent root = fxmlLoader.load();
             PlaceOrderFormController controller = fxmlLoader.getController();
             controller.initializeWithSearchOrderForm(tblOrders.getSelectionModel().getSelectedItem().getOrderId());
+            //System.out.println(tblOrders.getSelectionModel().getSelectedItem().getOrderId());
             Scene orderScene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(orderScene);
