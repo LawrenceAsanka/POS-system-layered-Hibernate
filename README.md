@@ -12,6 +12,10 @@ Further this POS System has implemented by using various technologies and framew
 
 [Different Implementations of POS System](https://github.com/LawrenceAsanka/Point-of-Sale-System/blob/master/README.md)    
 
+## Prerequisites
+
+* Before use this application you must need to install [JAVA](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) runtime environment and [MYSQL](https://www.mysql.com/) database management services.
+
 ## Configurations
 
 Find the resource directory from project directory and config the below properties with your dialect,database name,user name and password in the application.properties file.
